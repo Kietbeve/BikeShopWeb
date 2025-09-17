@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('customer.customer_layout');
+    return view('welcome');
 });
-
+Route::get("/product",[ProductController::class,"home"]);
+Route::get("/product/list",[ProductController::class,"list"]);
+Route::get("/product/list/detail",[ProductController::class,"detail"]);
+Route::get("/product/cart",[ProductController::class,"cart"]);

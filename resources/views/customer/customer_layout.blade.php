@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--/banner-->
 <div class="404-page">
 	 <div class="container">
-		@yield("content","hello")
+		@yield("content","")
 	 </div>
 </div>
 <!---->
