@@ -21,3 +21,6 @@ Route::get("/product",[ProductController::class,"home"]);
 Route::get("/product/list",[ProductController::class,"list"]);
 Route::get("/product/list/detail",[ProductController::class,"detail"]);
 Route::get("/product/cart",[ProductController::class,"cart"]);
+// dùng để xử lý form lấy hàm từ controller (18/9/2025)
+Route::post('/product', [ProductController::class, 'test']); // POST
+

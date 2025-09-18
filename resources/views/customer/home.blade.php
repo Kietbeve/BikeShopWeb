@@ -82,10 +82,12 @@
 	<div class="container">
 		<h3>CONTACT US</h3>
 		<p>Please contact us for all inquiries and purchase options.</p>
-		<form>
-			 <input type="text" placeholder="NAME" required="">
+		<form method="post" action="/product">
+			@csrf
+			<!-- đặc tên cho input name để lấy dữ liệu (18/9/2025)-->
+			 <input type="text" placeholder="NAME" required="" name= "name">
 			 <input type="text" placeholder="SURNAME" required="">			 
-			 <input class="user" type="text" placeholder="USER@DOMAIN.COM" required=""><br>
+			 <input class="user" type="text" placeholder="USER@DOMAIN.COM" required="" name="email"><br>
 			 <textarea placeholder="MESSAGE"></textarea>
 			 <input type="submit" value="SEND">
 		</form>
