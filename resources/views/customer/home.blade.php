@@ -1,4 +1,4 @@
-@extends("customer.customer_layout");
+@extends("customer.customer_layout")
 @section("content")
 <!--bikes-->
 <div class="bikes">	
@@ -82,7 +82,7 @@
 	<div class="container">
 		<h3>CONTACT US</h3>
 		<p>Please contact us for all inquiries and purchase options.</p>
-		<form method="post" action="/product">
+		<form method="POST" action="/product/contact">
 			@csrf
 			<!-- đặc tên cho input name để lấy dữ liệu (18/9/2025)-->
 			 <input type="text" placeholder="NAME" required="" name= "name">

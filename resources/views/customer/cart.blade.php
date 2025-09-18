@@ -1,4 +1,4 @@
-@extends("customer.customer_layout");
+@extends("customer.customer_layout")
 @section("content")
 <div class="cart">
 	 <div class="container">
