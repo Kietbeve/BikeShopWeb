@@ -14,11 +14,17 @@ class ProductController extends Controller
     // hàm xử lý request từ form (18/9/2025) 18/09/2025 kietbeve da doi ten test->singup va viet lai return
     function sign_up(Request $request){
         $name = $request->input('name'); 
-        $email = $request->input('email'); 
+        $email = $request->input('email');
+        $phone = $request->input('phone'); 
+        $tieude = $request->input('tieude');
+        $noidung = $request->input('noidung'); 
+        $status=true; 
         // Xử lý dữ liệu (ví dụ: lưu vào cơ sở dữ liệu, gửi email, v.v.)
-        DB::statement("INSERT INTO khachhang (matk, tenkh, email) VALUES (1, ?, ?)", [$name, $email]);       
-        return view("customer.contact",compact('name'));
-      
+        DB::statement("INSERT INTO khachhang ( tenkh, email,sdt) VALUES ( ?, ?,?)", [$name, $email,$phone]);         
+        return view("customer.contact",[
+        'name'=>$name,'email'=>$email,
+        'phone'=>$phone,'tieude'=>$tieude,'noidung'=>$noidung,
+        'status'=>$status]);
     }
     
     function list(){
@@ -26,6 +32,10 @@ class ProductController extends Controller
     }
        function detail(){
         return view("customer.detail");
+    }
+      function contact(){
+        
+        return view("customer.contact");
     }
            function cart(){
         return view("customer.cart");

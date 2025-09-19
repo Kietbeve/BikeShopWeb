@@ -32,8 +32,9 @@ Route::get("/product",[ProductController::class,"home"]);
 Route::get("/product/list",[ProductController::class,"list"]);
 Route::get("/product/list/detail",[ProductController::class,"detail"]);
 Route::get("/product/cart",[ProductController::class,"cart"]);
+Route::get("/product/contact",[ProductController::class,"contact"]);
 // dùng để xử lý form lấy hàm từ controller (18/9/2025) kietbeve da sua lai (18/9/2025)
-Route::post('/product/contact', [ProductController::class, 'sign_up']); // POST
+Route::post('/product/contact', [ProductController::class, 'sign_up'])->middleware('check.data')->name('custommer.contact'); // POST
 //18/09/2025 kietbeve viet route khi khong tim thay route nao
 Route::fallback(function(){
     return view("customer.error");
