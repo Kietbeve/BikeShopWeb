@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\DB;
+
+// route kiểm tra kết nối db
+Route::get('/check-db', function () {
+    try {
+        DB::connection()->getPdo();
+        return "✅ Kết nối CSDL thành công!";
+    } catch (\Exception $e) {
+        return "❌ Lỗi: " . $e->getMessage();
+    }
+});
 
 Route::get('/', function () {
     return view('welcome');
