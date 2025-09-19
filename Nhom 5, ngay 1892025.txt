@@ -1,0 +1,45 @@
+Nhom 5, ngay 18/9/2025.
+
+lập group nhóm: WebB\_nhom05 **add thầy vào**
+
+tạo 1 drive: nhom truong( dau ban ).
+
+ 	info
+
+ 	document: chứa bt( vd: 01\_ ngày lm\_bt ) + báo cáo hợp....
+
+ 	tổng hợp file cuối cùng của ngày.
+
+ 	tap: ( file excel ): nhiệm vụ từng người và tiến trình ( độ khó ).
+
+ 
+
+nhóm trưởng:
+
+*  phân tích dự án có mấy tap, phân công, các thành viên cùng làm.
+* tạo dự án chung \& ghi chú chung của nhóm.
+
+
+
+nhiệm vụ ms:
+
+* bt nhóm: tạo middleware kiểm tra xem lưu 1 file request. log tự lưu. lưu lịch sử request( request j, tgian nhận, ip j ) url, datetime, ip, post, thêm chức năng nếu click vào link không có thì chuyển sang trang 404.....
+
+nhiem vu ca nhan:
+
+* chưa giao
+
+
+
+
+
+
+
+lý thuyết: thực chat routing trong Laravel là 1 controller tương tác vs view và trả về client và cũng là middleware
+
+**tuan sau kiem tra**
+
+
+
+ 
+
