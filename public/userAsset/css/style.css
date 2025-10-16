@@ -1325,6 +1325,15 @@ label{
 
 }
 /*--responsive--*/
+
+@media (max-width: 1600px){
+.contact form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 17px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
+}
+}
 @media (max-width: 1440px){
 .model {
   width: 45%;
@@ -2228,5 +2237,364 @@ a.order{
 }
 .none2{
 	display:none;
+}}
+
+/* sign-up */
+.signup{
+	background:url(../images/contact.jpg) no-repeat 0px 0px;
+	min-height:560px;
+	background-size:cover;
+	text-align:center;
+	padding:4em 0;
+}
+.signup h3{
+	color: #000;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom:0.7em;
+}
+.signup p{
+  color: #000;
+  font-size: 1.15em;
+  font-weight: 500;
+}
+.signup form{	
+	width:43%;
+	margin:3em auto 0 auto;
+}
+.signup form input[type="text"],.signup form input[type="password"], .signup textarea {
+  width: 43%;
+  margin-right: 4%;
+  padding: 10px;
+  border: 1px solid #b7b7b7;
+  font-size: 1em;
+  margin-bottom: 2em;
+  font-style:italic;
+  color: #000;
+  background: #fff;
+  outline: none;
+  font-weight: 400;
+  border-radius:7px;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
+.signup form input[type="text"].user, .signup form input[type="password"].user,.signup textarea {
+	width:90%;
+	resize:none;
+}
+.signup textarea {
+	height:170px;
+}
+.signup form input[type="submit"] {
+  color: #fff;
+  background: #b7b7b7;
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: none;
+  border: none;  
+  width:90%;
+  margin-right: 6%;
+  padding: 10px 30px;
+  display: block;
+  border-radius:7px;  
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
+.signup form input[type="submit"]:hover{
+	background:#000;
+	color:#fcff19;
+}
+@media (max-width: 1600px){
+.signup form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 17px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
+}
+}
+@media (max-width: 1440px){
+.signup form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 15px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
+}
+}
+@media (max-width: 1024px){
+.signup form input[type="submit"] {
+  margin: 0 0 0 12px;
+  /* margin:0 auto;	 */
+  font-size: 0.9em;
+  padding: 9px 0px;
+}}
+
+@media (max-width:768px){
+.signup h3 {
+  font-size: 1.7em;
+}
+.signup p {
+  font-size: 1.1em;
+}
+.signup {
+  min-height: 550px;
+  padding: 2em 0 0 0;
+}
+.signup form {
+  width: 65%;
+}
+}
+
+@media (max-width:640px){
+.signup h3 {
+  font-size: 1.4em;
+}
+.signup p {
+  font-size: 0.95em;
+}
+.signup form input[type="text"], .signup form input[type="password"],.signup textarea {
+  padding: 7px;
+  font-size: 0.85em;
+}
+.signup form {
+  width: 70%;
+}
+.signup textarea {
+  height: 127px;
+}
+.signup form input[type="submit"] {
+  margin: 0 0 0 14px;
+  font-size: 0.9em;
+  padding: 9px 0px;
+}
+.signup {
+  min-height: 470px;
+}
+}
+@media(max-width: 480px) {
+    .signup h3 {
+  font-size: 1.3em;
+}
+.signup p {
+  font-size: 0.83em;
+}
+.signup form {
+  width: 100%;
+  margin: 2em auto 0 auto;
+}
+.signup {
+  min-height: 455px;
+}
+.signup form input[type="text"].user, .signup form input[type="password"].user, .signup form input[type="submit"] {
+  width: 100%;
+    margin-bottom: 1.2em;
+}
+.signup form input[type="text"], .signup form input[type="password"], .signup textarea{
+  width: 100%;
+  margin-right:0;
+  margin-bottom: 1.2em;
+}
+.signup form input[type="submit"] {
+margin:0;
+}
+}
+@media(max-width: 320px){
+.signup h3 {
+  font-size: 1.1em;
+}
+.signup h3{
+	margin-bottom:0.3em;
+}
+.signup p {
+  font-size: 0.75em;
+}
+.signup textarea {
+  height: 100px;
+}
+.signup {
+  min-height: 400px;
+}
+}
+
+/* log-in */
+.login{
+	background:url(../images/contact.jpg) no-repeat 0px 0px;
+	min-height:560px;
+	background-size:cover;
+	text-align:center;
+	padding:4em 0;
+}
+.login h3{
+	color: #000;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom:0.7em;
+}
+.login p{
+  color: #000;
+  font-size: 1.15em;
+  font-weight: 500;
+}
+.login form{	
+	width:43%;
+	margin:3em auto 0 auto;
+}
+.login form input[type="text"],.login form input[type="password"], .login textarea {
+  width: 43%;
+  margin-right: 4%;
+  padding: 10px;
+  border: 1px solid #b7b7b7;
+  font-size: 1em;
+  margin-bottom: 2em;
+  font-style:italic;
+  color: #000;
+  background: #fff;
+  outline: none;
+  font-weight: 400;
+  border-radius:7px;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
+.login form input[type="text"].user, .login form input[type="password"].user,.login textarea {
+	width:90%;
+	resize:none;
+}
+.login textarea {
+	height:170px;
+}
+.login form input[type="submit"] {
+  color: #fff;
+  background: #b7b7b7;
+  font-size: 1em;
+  font-weight: 400;
+  text-decoration: none;
+  border: none;  
+  width:90%;
+  margin:0 auto;
+  padding: 10px 30px;
+  display: block;
+  border-radius:7px;  
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
+.login form input[type="submit"]:hover{
+	background:#000;
+	color:#fcff19;
+}
+@media (max-width: 1600px){
+.login form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 17px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
+}
+}
+@media (max-width: 1440px){
+.login form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 18px;
+  padding: 11px 0px;
+}
+}
+@media (max-width: 1024px){
+.login form input[type="submit"] {
+  margin: 0 0 0 14px;
+}}
+
+@media (max-width:768px){
+.login h3 {
+  font-size: 1.7em;
+}
+.login p {
+  font-size: 1.1em;
+}
+.login {
+  min-height: 550px;
+  padding: 2em 0 0 0;
+}
+.login form {
+  width: 65%;
+}
+}
+
+@media (max-width:640px){
+.login h3 {
+  font-size: 1.4em;
+}
+.login p {
+  font-size: 0.95em;
+}
+.login form input[type="text"], .login form input[type="password"],.login textarea {
+  padding: 7px;
+  font-size: 0.85em;
+}
+.login form {
+  width: 70%;
+}
+.login textarea {
+  height: 127px;
+}
+.login form input[type="submit"] {
+  margin: 0 0 0 14px;
+  font-size: 0.9em;
+  padding: 9px 0px;
+}
+.login {
+  min-height: 470px;
+}
+}
+@media(max-width: 480px) {
+    .login h3 {
+  font-size: 1.3em;
+}
+.login p {
+  font-size: 0.83em;
+}
+.login form {
+  width: 100%;
+  margin: 2em auto 0 auto;
+}
+.login {
+  min-height: 455px;
+}
+.login form input[type="text"].user, .login form input[type="password"].user, .login form input[type="submit"] {
+  width: 100%;
+    margin-bottom: 1.2em;
+}
+.login form input[type="text"], .login form input[type="password"], .login textarea{
+  width: 100%;
+  margin-right:0;
+  margin-bottom: 1.2em;
+}
+.login form input[type="submit"] {
+margin:0;
+}
+}
+@media(max-width: 320px){
+.login h3 {
+  font-size: 1.1em;
+}
+.login h3{
+	margin-bottom:0.3em;
+}
+.login p {
+  font-size: 0.75em;
+}
+.login textarea {
+  height: 100px;
+}
+.login {
+  min-height: 400px;
 }
 }

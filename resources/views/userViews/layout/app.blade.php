@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	@php
 	((request()->is('/'))||(request()->is('home')))? $isPageHome=true : $isPageHome=false
 	@endphp
-	@include('userViews.partials.header-home',[$isPageHome])
+	@include('userViews.partials.header',[$isPageHome])
 </header>
 	
 
