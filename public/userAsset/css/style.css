@@ -1325,6 +1325,15 @@ label{
 
 }
 /*--responsive--*/
+
+@media (max-width: 1600px){
+.contact form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 17px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
+}
+}
 @media (max-width: 1440px){
 .model {
   width: 45%;
@@ -2287,7 +2296,7 @@ a.order{
   text-decoration: none;
   border: none;  
   width:90%;
-  margin:0 auto;
+  margin-right: 6%;
   padding: 10px 30px;
   display: block;
   border-radius:7px;  
@@ -2301,18 +2310,28 @@ a.order{
 	background:#000;
 	color:#fcff19;
 }
+@media (max-width: 1600px){
+.signup form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 17px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
+}
+}
 @media (max-width: 1440px){
 .signup form input[type="submit"] {
   width: 89%;
-  /* margin: 0 0 0 18px; */
-  margin:0 auto;
-  padding: 11px 0px;
+  margin: 0 0 0 15px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
 }
 }
 @media (max-width: 1024px){
 .signup form input[type="submit"] {
-  /* margin: 0 0 0 14px; */
-  margin:0 auto;	
+  margin: 0 0 0 12px;
+  /* margin:0 auto;	 */
+  font-size: 0.9em;
+  padding: 9px 0px;
 }}
 
 @media (max-width:768px){
@@ -2472,6 +2491,14 @@ margin:0;
 .login form input[type="submit"]:hover{
 	background:#000;
 	color:#fcff19;
+}
+@media (max-width: 1600px){
+.login form input[type="submit"] {
+  width: 89%;
+  margin: 0 0 0 17px; 
+  /* margin:0 auto; */
+  padding: 10px 0px;
+}
 }
 @media (max-width: 1440px){
 .login form input[type="submit"] {

@@ -8,7 +8,7 @@
 <div class="login">
 	<div class="container">
 		<h3>LOG-IN</h3>
-		<p>Please sign up if you do have an account.</p>
+		<p>Please log-in if you do have an account.</p>
 		<form>
             {{-- đăng kí tên user email mat khau nhap lại mật khẩu --}}
 			 <input class="user" type="text" placeholder="USER NAME" required=""><br>

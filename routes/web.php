@@ -28,9 +28,7 @@ Route::get('/check-db', function () {
         return "❌ Lỗi: " . $e->getMessage();
     }
 });
-// Route thang qua controller
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index']);
+
 
 //gọi hàm thêm sản phẩm mới từ controller (09/10/2025) phuoc
 Route::post('/add-product', [AddProductController::class, 'addProduct'])->name('addproduct');
@@ -42,6 +40,10 @@ Route::post('/add-product-category', [AddProductCategoryController::class, 'addP
 // Route trang 404 khi url sai
 Route::fallback( function () {return view('userViews/pages/404');});
 
+
+// Route thang qua controller
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 //Route thang qua view
 Route::get('/accessories', function () {return view('userViews/pages/accessories');});
 Route::get('/bicycles', function () {return view('userViews/pages/bicycles');});
@@ -51,9 +53,9 @@ Route::get('/single', function () {return view('userViews/pages/single');});
 Route::get('/contact', function () {return view('userViews/pages/contact');});
 Route::get('/log-in', function () {return view('userViews/pages/log-in');});
 Route::get('/sign-up', function () {return view('userViews/pages/sign-up');});
-//các route hoạt động bình thường (test 15/10/2025 by trongphuc)
 
 
+//không thể tới view thông qua các route trên xin hãy chỉnh sửa (xóa dòng này khi đã khắc phục)
 //Route cho admin
 Route::get('/admin/dangnhap',[AdminLoginColltroller::class,'index']);
 Route::post('/admin/dangnhap',[AdminLoginColltroller::class,'login']);
