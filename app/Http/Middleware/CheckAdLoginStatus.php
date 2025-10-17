@@ -15,11 +15,13 @@ class CheckAdLoginStatus
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
+    
     {
-        if(session('admin')==null){
+       if(session('admin')==null){
             return redirect('admin/dangnhap')
             ->with('error', 'Bạn cần đăng nhập trước khi truy cập trang này.');
         }
         return $next($request);
     }
+    
 }

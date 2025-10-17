@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\AddProductController;
 use App\Http\Controllers\AddProductCategoryController;
 use App\Http\Controllers\AdminLoginColltroller;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,13 +51,3 @@ Route::get('/single', function () {return view('userViews/pages/single');});
 Route::get('/contact', function () {return view('userViews/pages/contact');});
 Route::get('/log-in', function () {return view('userViews/pages/log-in');});
 Route::get('/sign-up', function () {return view('userViews/pages/sign-up');});
-
-
-//không thể tới view thông qua các route trên xin hãy chỉnh sửa (xóa dòng này khi đã khắc phục)
-//Route cho admin
-Route::get('/admin/dangnhap',[AdminLoginColltroller::class,'index']);
-Route::post('/admin/dangnhap',[AdminLoginColltroller::class,'login']);
-Route::middleware('CheckAdLoginStatus')->group(function(){
-    Route::get('/admin/dashboard',[AdminLoginColltroller::class, 'dashboard']);//test
-    Route::get('/admin/dangxuat',[AdminLoginColltroller::class, 'logout']);
-});
