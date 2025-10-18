@@ -1,5 +1,5 @@
 @extends('admin.home.admin')
-@section('title', 'Danh Muc San Pham')
+@section('title', 'Danh Mục Sản Phẩm')
 @section('content')
 
 <h1 class="page-header">Danh Sách Sản Phẩm</h1>
@@ -12,33 +12,40 @@
                         <th>Ảnh</th>
                         <th>Mã SP</th>
                         <th>Tên SP</th>
-                        <th>Loại SP</th>
+                        <th>Mã danh mục</th>
+                        <th>Mã NSX</th>
                         <th>Số lượng</th>
                         <th>Size</th>
                         <th>Mô tả</th>
                         <th>Giá bán</th>
-                        <th>Mã NSX</th>
-                        <th>Mã Admin</th>
                         <th>Trạng thái</th>
+                        <th>Tags</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Dữ liệu mẫu -->
-                        <!-- Thêm các dòng sản phẩm khác bằng cách dùng foreach -->
+                        @foreach($product as $product)
                         <tr>
-                        <td><img src="https://via.placeholder.com/60" class="product-img" alt="Xe đạp"></td>
-                        <td>XD01</td>
-                        <td>Xe đạp thể thao</td>
-                        <td>Xe đạp</td>
-                        <td>10</td>
-                        <td>L</td>
-                        <td>Xe đạp chất lượng cao, khung nhôm</td>
-                        <td>5,000,000</td>
-                        <td>NSX001</td>
-                        <td>ADM001</td>
-                        <td><span class="badge badge-active">Hiển thị</span></td>
+                            <td><img src="{{ $product->image ?? 'https://via.placeholder.com/60' }}" 
+                                class="img-thumbnail" style="max-height:60px;"></td>
+                            <td>{{ $product->masp }}</td>
+                            <td>{{ $product->tensp }}</td>
+                            <td>{{ $product->madm }}</td>
+                            <td>{{ $product->mansx }}</td>
+                            <td>{{ $product->soluong }}</td>
+                            <td>{{ $product->size }}</td>
+                            <td>{{ $product->giaban }}</td>
+                            <td>{{ $product->mota }}</td>
+                            <td>{{ $product->trangthai }}</td>
+                            <td>{{ $product->tags }}</td>
+                            <td>
+                                @if($product->trangthai)
+                                    <span class="badge badge-success rounded-pill">Hiển thị</span>
+                                    @else
+                                    <span class="badge badge-danger rounded-pill">Ẩn</span>
+                                @endif
+                            </td>
                         </tr>
-                        
+                        @endforeach
                     </tbody>
                     </table>
                 </div>

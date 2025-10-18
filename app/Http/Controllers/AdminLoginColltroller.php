@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Nguoidung;
-
 class AdminLoginColltroller extends Controller
 {
-    //
     public function index(){
         return view('admin.pages.login');
     }
@@ -33,7 +31,7 @@ class AdminLoginColltroller extends Controller
         //if($remember){ chua biet xu li
             $request->session()->put('admin', $nguoidung); // luu taikhoan
         //}
-        return redirect("/admin/dashboard");
+        return redirect("/admin/bangdieukhien");
     }
         return back()->with('error', 'Sai tên đăng nhập hoặc mật khẩu!');
     }

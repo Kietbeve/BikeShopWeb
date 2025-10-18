@@ -1,5 +1,5 @@
 @extends('admin.home.admin')
-@section('title', 'Them San Pham')
+@section('title', 'Thêm Sản Phẩm')
 @section('content')
 
 <h1 class="page-header">Thêm Sản Phẩm Mới</h1>

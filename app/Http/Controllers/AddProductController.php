@@ -11,9 +11,12 @@ class AddProductController extends Controller
 {
     public function index() {
         $products = Product::all(); // lấy tất cả sản phẩm trong bảng sanpham
-        //return view('customer.product', compact('products'));
+        return view('admin.pages.addproduct', compact('products'));
     }
-
+    public function hienDSSP() {
+        $product = Product::all();
+        return view('admin.pages.category', compact('product'));
+    }
     public function checkProductCategory(){
         $check = DB::select("SELECT * FROM danhmucsanpham WHERE madm = ?", [$product->madm]);
          if(count($check) > 0){

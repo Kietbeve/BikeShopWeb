@@ -1,5 +1,5 @@
     @extends('admin.home.admin')
-    @section('title','Dashboard')
+    @section('title','Bảng Điều Khiển')
     @section('content')
     <h1 class="page-header">Bảng Điều Khiển</h1>
     
