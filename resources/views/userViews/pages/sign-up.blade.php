@@ -12,9 +12,15 @@
 		<form>
             {{-- đăng kí tên user email mat khau nhap lại mật khẩu --}}
 			 <input class="user" type="text" placeholder="USER NAME" required=""><br>
+			 <span></span>
              <input class="user" type="text" placeholder="USER@GMAIL.COM" required=""><br>
+			 <span></span>
 			 <input class="user" type="password" placeholder="PASSWORD" required="">
+			 <span></span>
 			 <input class="user"type="text" placeholder="CONFIRM PASSWORD" required="">
+			 <span></span>
+			 <br>
+			 <br>
 			 <input type="submit" value="SEND">
 		</form>
 	</div>

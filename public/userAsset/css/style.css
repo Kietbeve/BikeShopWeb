@@ -2268,7 +2268,8 @@ a.order{
   padding: 10px;
   border: 1px solid #b7b7b7;
   font-size: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  margin-top: 2em;
   font-style:italic;
   color: #000;
   background: #fff;
@@ -2310,11 +2311,35 @@ a.order{
 	background:#000;
 	color:#fcff19;
 }
+.signup form span{
+  display: block;
+  width: 90%;
+  margin-right: 4%;
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 2em;
+  /* font-style:italic; */
+  color: #610000;
+  background: #feaaaa;
+  outline: none;
+  font-weight: 400;
+  border-radius:7px;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
 @media (max-width: 1600px){
 .signup form input[type="submit"] {
   width: 89%;
   margin: 0 0 0 17px; 
   /* margin:0 auto; */
+  padding: 10px 0px;
+}
+.signup form span{
+  width: 90%;
+  margin: 0 0 0 15px; 
   padding: 10px 0px;
 }
 }
@@ -2325,6 +2350,11 @@ a.order{
   /* margin:0 auto; */
   padding: 10px 0px;
 }
+.signup form span {
+  width: 89%;
+  margin: 0 0 0 18px;
+  padding: 11px 0px;
+}
 }
 @media (max-width: 1024px){
 .signup form input[type="submit"] {
@@ -2332,7 +2362,11 @@ a.order{
   /* margin:0 auto;	 */
   font-size: 0.9em;
   padding: 9px 0px;
-}}
+}
+.signup form span {
+  margin: 0 0 0 14px;
+}
+}
 
 @media (max-width:768px){
 .signup h3 {
@@ -2444,13 +2478,14 @@ margin:0;
 	width:43%;
 	margin:3em auto 0 auto;
 }
-.login form input[type="text"],.login form input[type="password"], .login textarea {
+.login form input[type="text"],.login form input[type="password"],.login textarea {
   width: 43%;
   margin-right: 4%;
   padding: 10px;
   border: 1px solid #b7b7b7;
   font-size: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  margin-top: 2em;
   font-style:italic;
   color: #000;
   background: #fff;
@@ -2463,7 +2498,7 @@ margin:0;
   -o-transition: 0.5s all ease;
   -ms-transition: 0.5s all ease;
 }
-.login form input[type="text"].user, .login form input[type="password"].user,.login textarea {
+.login form input[type="text"].user, .login form input[type="password"].user, .login textarea {
 	width:90%;
 	resize:none;
 }
@@ -2492,11 +2527,36 @@ margin:0;
 	background:#000;
 	color:#fcff19;
 }
+.login form span{
+  display: block;
+  width: 90%;
+  margin-right: 4%;
+  padding: 10px;
+  font-size: 1em;
+  margin-bottom: 2em;
+  /* font-style:italic; */
+  color: #610000;
+  background: #feaaaa;
+  outline: none;
+  font-weight: 400;
+  border-radius:7px;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+}
 @media (max-width: 1600px){
 .login form input[type="submit"] {
   width: 89%;
   margin: 0 0 0 17px; 
   /* margin:0 auto; */
+  padding: 10px 0px;
+}
+
+.login form span{
+  width: 90%;
+  margin: 0 0 0 15px; 
   padding: 10px 0px;
 }
 }
@@ -2506,11 +2566,21 @@ margin:0;
   margin: 0 0 0 18px;
   padding: 11px 0px;
 }
+.login form span {
+  width: 89%;
+  margin: 0 0 0 18px;
+  padding: 11px 0px;
+}
+
 }
 @media (max-width: 1024px){
 .login form input[type="submit"] {
   margin: 0 0 0 14px;
-}}
+}
+.login form span {
+  margin: 0 0 0 14px;
+}
+}
 
 @media (max-width:768px){
 .login h3 {
@@ -2553,6 +2623,7 @@ margin:0;
 .login {
   min-height: 470px;
 }
+
 }
 @media(max-width: 480px) {
     .login h3 {
