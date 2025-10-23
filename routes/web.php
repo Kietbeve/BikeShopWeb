@@ -42,9 +42,13 @@ Route::fallback( function () {return view('userViews/pages/404');});
 // Route thang qua controller
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
+
+//
+Route::get('/bicycles', [HomeController::class, 'bicycles']);
+
 //Route thang qua view
 Route::get('/accessories', function () {return view('userViews/pages/accessories');});
-Route::get('/bicycles', function () {return view('userViews/pages/bicycles');});
+//Route::get('/bicycles', function () {return view('userViews/pages/bicycles');});
 Route::get('/cart', function () {return view('userViews/pages/cart');});
 Route::get('/parts', function () {return view('userViews/pages/parts');});
 Route::get('/single', function () {return view('userViews/pages/single');});
