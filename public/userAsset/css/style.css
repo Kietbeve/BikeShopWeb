@@ -2486,7 +2486,7 @@ margin:0;
   font-size: 1em;
   margin-bottom: 1em;
   margin-top: 2em;
-  font-style:italic;
+  /* font-style:italic; */
   color: #000;
   background: #fff;
   outline: none;
