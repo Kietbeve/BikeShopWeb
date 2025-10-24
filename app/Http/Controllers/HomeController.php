@@ -66,7 +66,47 @@ class HomeController extends Controller
                             ->select('madm')->get();
     }
 
-//.... còn tiếp
+    public function bicycleTire(){
+        $products = Product::where('madm', 'PT01')
+                            ->select('madm')->get();
+    }
+
+    public function bicycleGear(){
+        $products = Product::where('madm', 'PT02')
+                            ->select('madm')->get();
+    }
+
+    public function bicycleInnerTube(){
+        $products = Product::where('madm', 'PT03')
+                            ->select('madm')->get();
+    }
+
+    public function otherParts(){
+        $products = Product::where('madm', 'PT04')
+                            ->select('madm')->get();
+    }
+
+    public function bicycleFlashlight(){
+        $products = Product::where('madm', 'PK01')
+                            ->select('madm')->get();
+    }
+
+    public function bicycleKickstand(){
+        $products = Product::where('madm', 'PK02')
+                            ->select('madm')->get();
+    }
+
+    public function bicycleHandlebarBag(){
+        $products = Product::where('madm', 'PK03')
+                            ->select('madm')->get();
+    }
+
+    public function otherAccessories(){
+        $products = Product::where('madm', 'PK04')
+                            ->select('madm')->get();
+    }
+
+    
 
 }
 ?>

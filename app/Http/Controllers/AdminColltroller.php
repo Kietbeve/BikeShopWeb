@@ -36,16 +36,17 @@ class AdminLoginColltroller extends Controller
         return back()->with('error', 'Sai tên đăng nhập hoặc mật khẩu!');
     }
 // phần Product 
-    public function getAll() {
+    // hàm hiện thị tất cả sản phẩm
+    public function getProduct() {
         $products = Product::all(); // lấy tất cả sản phẩm trong bảng sanpham
         return view('admin.pages.addproduct', compact('products'));
     }
-
-    public function hienDSSP() {
-        $product = Product::all();
-        return view('admin.pages.category', compact('product'));
+    // kết bảng giữa sản phẩm và danh mục sản phẩm
+    public function productAndCategory(){
+        $products = Product::with('danhmuc')->get();
     }
 
+    // kiểm tra ma danh muc
     public function checkProductCategory($madm){
         //$check = DB::select("SELECT * FROM danhmucsanpham WHERE madm = ?", [$product->madm]);
         $check = Product::where('madm', $madm)->exists(); 
@@ -54,7 +55,7 @@ class AdminLoginColltroller extends Controller
          }
          return false;        
     }
-
+    // kiểm tra masp có tồn tại
     public function checkProduct($masp){
         //$check_sp = DB::select("SELECT masp FROM sanpham WHERE masp = ?", [$product->masp]);
         $check_sp = Product::where('masp', $masp)->exists();
@@ -63,7 +64,7 @@ class AdminLoginColltroller extends Controller
         }
         return false;
     }
-
+    // Kiểm tra dữ liệu nhập vào của form addproduct
     public function checkInputProduct(Request $request){
         $validated = $request->validate([
             'anh' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -82,6 +83,7 @@ class AdminLoginColltroller extends Controller
     }
 
 // Cập nhật hàm thêm sản phẩm 23/10/2025
+    // hàm dùng để thêm sản phẩm 
     function addProduct(Request $request) {  
         try{
             checkInput($request);
@@ -117,7 +119,8 @@ class AdminLoginColltroller extends Controller
         return view('customer.adddanhmuc');    
     }
 
-// phần 
+// phần category 
+    // kiểm tra dữ liệu nhập vào của trang addcategory
     public function checkInputCategory(Request $request){
          $validated = $request->validate([
             'madm' => 'required|string|max:50',
@@ -126,7 +129,18 @@ class AdminLoginColltroller extends Controller
         ]);
         return  $validated;
     }
+    // hàm kiểm tra danh muc có tồn tại
+    public function checkCategory($madm){
+        $check_dm = ProductCategory::where('madm', $madm)->exists();
+    }
 
+    //hàm lấy dữ liệu của danh mục
+    public function getCategory(){
+         $danhmuc = ProductCategory::all();
+
+    }
+
+    // hàm thêm danh muc mới
     public function addProductCategory(Request $request){
          try{
             checkInput($request);
@@ -139,6 +153,9 @@ class AdminLoginColltroller extends Controller
             'tendm' => $request->input('tendm')   
         ];    
 
+        if(checkCategory($danhmuc['madm'])){
+            return redirect()->back()->with('message', 'Mã danh mục này đã tồn tại');
+        }
         //DB::statement("INSERT INTO danhmucsanpham ( madm, malsp, tendm ) VALUES (?,?,?)",[$danhmuc->madm, $danhmuc->malsp, $danhmuc->tendm]);
         //DB::table('danhmucsanpham')->insert($danhmuc);
         Product::create($danhmuc);
