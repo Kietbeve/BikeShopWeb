@@ -105,8 +105,7 @@ class HomeController extends Controller
         $products = Product::where('madm', 'PK04')
                             ->select('madm')->get();
     }
-
-    
+   
 
 }
 ?>

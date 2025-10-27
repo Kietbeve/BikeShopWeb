@@ -3,6 +3,10 @@
 @section('content')
 
 <h1 class="page-header">Thêm Sản Phẩm Mới</h1>
+
+{{-- gợi ý hàm: 
+    có thể dùng foreach để lấy ra tên danh mục nhưng giá trị phải gắn = madm phải gán lại value cho tui
+--}}
     
 <div class="row">
     <div class="col-lg-3 col-md-6">
