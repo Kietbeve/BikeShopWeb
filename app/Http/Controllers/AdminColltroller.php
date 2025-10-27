@@ -23,10 +23,7 @@ class AdminColltroller extends Controller
         $taikhoan=$request->taikhoan;
         $matkhau= $request->matkhau;
         $remember=$request->remember;
-        $nguoidung =Nguoidung::select('tennd','chucvu')
-                    ->where('taikhoan', $taikhoan)
-                    ->where('matkhau', $matkhau)
-                    ->first();
+        $nguoidung =Nguoidung::checkInputLogin($taikhoan, $matkhau);
     //if ($nguoidung->chucvu=='admin') { sai vi neu $nguoidung null thi se ko thuoc model nguoidung
     if ($nguoidung && $nguoidung->chucvu=='admin') {
         // Lưu trạng thái đăng nhập vào session

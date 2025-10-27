@@ -14,27 +14,8 @@ class ProductController extends Controller
     // phần Product 
     // hàm hiện thị tất cả sản phẩm
     public function getProduct() {
-        $product = Product::all(); // lấy tất cả sản phẩm trong bảng sanpham
+        $product = Product::getAllProducts(); // lấy tất cả sản phẩm trong bảng sanpham
         return view('admin.pages.category', compact('product'));
-    }
-    
-    // kiểm tra ma danh muc
-    public function checkProductCategory($madm){
-        //$check = DB::select("SELECT * FROM danhmucsanpham WHERE madm = ?", [$product->madm]);
-        $check = Product::where('madm', $madm)->exists(); 
-        if($check){
-            return true;
-         }
-         return false;        
-    }
-    // kiểm tra masp có tồn tại
-    public function checkProduct($masp){
-        //$check_sp = DB::select("SELECT masp FROM sanpham WHERE masp = ?", [$product->masp]);
-        $check_sp = Product::where('masp', $masp)->exists();
-        if($check_sp){
-            return true;
-        }
-        return false;
     }
     // Kiểm tra dữ liệu nhập vào của form addproduct
     public function checkInputProduct(Request $request){
@@ -54,7 +35,6 @@ class ProductController extends Controller
         return  $validated;
     }
 
-// Cập nhật hàm thêm sản phẩm 23/10/2025
     // hàm dùng để thêm sản phẩm 
     public function addProduct(Request $request) {  
         // try{
@@ -79,13 +59,13 @@ class ProductController extends Controller
                 'tags' => $request->input('tags')
             ]; 
             //return response()->json($product);  
-        if($this->checkProduct($product['masp'])){
+        if(Product::checkProduct($product['masp'])){
             return redirect()->with('message', 'Sản phẩm đã tồn tại!');
         }
-        if($this->checkProductCategory($product['madm'])){ 
+        if(Product::CheckCategory($product['madm'])){ 
             //DB:: statement("INSERT INTO sanpham ( anh, masp, tensp, madm, mansx, soluong, size, giaban, mota, trangthai, tags) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [$product->anh, $product->masp, $product->tensp, $product->madm, $product->mansx, $product->soluong, $product->size, $product->giaban, $product->mota, $product->trangthai, $product->tags]);
             //DB::table('sanpham')->insert($product);
-            Product::create($product);
+            Product::addNewProduct($product);
             return redirect('/')->with('success', 'Sản phẩm mới đã được thêm thành công!');
         }
         //return response()->json("can them");    

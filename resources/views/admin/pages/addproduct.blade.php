@@ -102,18 +102,15 @@
                             </datalist>
                             </div>
                             
-                        <!-- Mã danh mục -->
-                        
-                            
+                        <!-- Mã danh mục -->                                                  
                         
                         <div class="form-group col-md-4">
                             <label for="categoryCode">Mã danh mục</label>
                             <input type="text" class="form-control" id="madm" name="madm" placeholder="Nhập mã danh mục" list="categoryList">
                             <datalist id="categoryList">                        
-                            @foreach ($danhmuc as $dm)
-                                <option value="{{ $dm->madm }}">{{ $dm->tendm }}</option>
-                            @endforeach
-                        </select>
+                                @foreach ($danhmuc as $dm)
+                                    <option value="{{ $dm->madm }}">{{ $dm->tendm }}</option>
+                                @endforeach
                             </datalist>
                         </div>
 
@@ -134,7 +131,7 @@
                         <div class="form-group col-md-12">
                             <div class="form-group">
                                 <div class="custom-control custom-switch">
-                                {{-- <input type="text" class="custom-control-input" id="name" name="trangthai" value="1"> --}}
+                                <input type="text" class="custom-control-input" id="name" name="trangthai" value="1">
                                 <label class="custom-control-label" for="status">Hiển thị sản phẩm</label>
                                 </div>
                             </div>

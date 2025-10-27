@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\DB;
 //Khai bao controller
-use App\Http\Controllers\AddProductController;
-use App\Http\Controllers\AddProductCategoryController;
-use App\Http\Controllers\AdminLoginColltroller;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductCategoryController;
+use App\Http\Controllers\AdminColltroller;
+use App\Http\Controllers\BicyclesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +38,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 
 //
-Route::get('/bicycles', [HomeController::class, 'bicycles']);
+Route::get('/bicycles', [BicyclesController::class, 'bicycles']);
 
 //Route thang qua view
 Route::get('/accessories', function () {return view('userViews/pages/accessories');});

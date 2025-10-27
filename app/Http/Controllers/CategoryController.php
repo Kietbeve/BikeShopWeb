@@ -19,24 +19,19 @@ class CategoryController extends Controller
         ]);
         return  $validated;
     }
-    // hàm kiểm tra danh muc có tồn tại
-    public function checkCategory($madm){
-        $check_dm = ProductCategory::where('madm', $madm)->exists();
-    }
-
     //hàm lấy dữ liệu của danh mục
     public function getCategory(){
-        $danhmuc = ProductCategory::all();
+        $danhmuc = ProductCategory::getAllCategory();
         return view('admin.pages.addproduct', compact('danhmuc'));    
     }
 
     // hàm thêm danh muc mới
     public function addProductCategory(Request $request){
-         try{
-            checkInput($request);
-        } catch(ValidationException $e){
-            return response()->json(['success' => false, 'errors' => $e->errors()], 422);
-        }
+        //  try{
+        //     checkInput($request);
+        // } catch(ValidationException $e){
+        //     return response()->json(['success' => false, 'errors' => $e->errors()], 422);
+        // }
         $danhmuc = [
             'madm' => $request->input('madm'),
             'malsp' => $request->input('malsp'),
@@ -48,7 +43,7 @@ class CategoryController extends Controller
         }
         //DB::statement("INSERT INTO danhmucsanpham ( madm, malsp, tendm ) VALUES (?,?,?)",[$danhmuc->madm, $danhmuc->malsp, $danhmuc->tendm]);
         //DB::table('danhmucsanpham')->insert($danhmuc);
-        Product::create($danhmuc);
+        Product::addNewProduct($danhmuc);
         //return response()->json([$danhmuc->madm, $danhmuc->tendm]);
         return redirect('/addproduct')->with('success', 'Sản phẩm mới đã được thêm thành công!');
     }    
