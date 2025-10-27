@@ -28,13 +28,6 @@ Route::get('/check-db', function () {
     }
 });
 
-
-//gọi hàm thêm sản phẩm mới từ controller (09/10/2025) phuoc
-Route::post('/add-product', [AddProductController::class, 'addProduct'])->name('addproduct');
-
-//gọi hàm thêm danh mục sản phẩm (09/10/2025) phuoc
-Route::post('/add-product-category', [AddProductCategoryController::class, 'addProductCategory'])->name('addproductcategory');
-
 // Route trang 404 khi url sai
 Route::fallback( function () {return view('userViews/pages/404');});
 

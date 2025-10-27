@@ -26,8 +26,8 @@ class CategoryController extends Controller
 
     //hàm lấy dữ liệu của danh mục
     public function getCategory(){
-         $danhmuc = ProductCategory::all();
-
+        $danhmuc = ProductCategory::all();
+        return view('admin.pages.addproduct', compact('danhmuc'));    
     }
 
     // hàm thêm danh muc mới

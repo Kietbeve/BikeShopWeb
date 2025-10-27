@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
     {
         protected $table = 'sanpham'; // Tên bảng trong cơ sở dữ liệu
         protected $fillable = ['anh','masp','tensp', 'madm', 'mansx','soluong', 'size','mota', 'giaban', 'trangthai', 'tags'];
-
+        public $timestamps = false;
         // app/Models/Product.php
         public function danhmuc()
         {

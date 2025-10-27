@@ -11,12 +11,14 @@ use App\Http\Controllers\CategoryController;
 Route::get('/dangnhap',[AdminColltroller::class,'index']);
 Route::post('/dangnhap',[AdminColltroller::class,'login']);
 
-Route::get('/');
-
 Route::middleware('CheckAdLoginStatus')->group(function(){
     Route::get('trangtrang',function()  {return view('admin.home.admin');});
     Route::get('bangdieukhien',[AdminColltroller::class, 'dashboard']);
-    Route::get('themsanpham',[AdminController::class,'index']);
+    // Route::get('themsanpham', function(){
+    //     return view('admin.pages.addproduct');
+    // });
+    Route::get('themsanpham', [CategoryController::class, 'getCategory']);
+    Route::post('themsanpham',[ProductController::class,'addProduct'])->name('themsanpham');
     Route::get('danhsachsanpham',[ProductController::class,'getProduct']);
     Route::get('dangxuat',[AdminColltroller::class, 'logout']);
 });
