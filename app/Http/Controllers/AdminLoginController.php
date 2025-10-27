@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Nguoidung;
 use Illuminate\Support\Str;
 
-class AdminColltroller extends Controller
+class AdminLoginController extends Controller
 {
     public function index(){
         return view('admin.pages.login');
@@ -19,13 +19,15 @@ class AdminColltroller extends Controller
         $request->session()->put('admin',null);
         return redirect("/admin/dangnhap");
     }
+    //LanSuaCuoi: 27/10/25 NguoiSua: TuanKiet
+    //trang thai: Hoat dong tot voi checkLogin
     public function login(Request $request){//test
         $taikhoan=$request->taikhoan;
         $matkhau= $request->matkhau;
         $remember=$request->remember;
-        $nguoidung =Nguoidung::checkInputLogin($taikhoan, $matkhau);
+        $nguoidung =Nguoidung::checkLogin($taikhoan, $matkhau);
     //if ($nguoidung->chucvu=='admin') { sai vi neu $nguoidung null thi se ko thuoc model nguoidung
-    if ($nguoidung && $nguoidung->chucvu=='admin') {
+    if ($nguoidung) {
         // Lưu trạng thái đăng nhập vào session
         //if($remember){ chua biet xu li
             $request->session()->put('admin', $nguoidung); // luu taikhoan
