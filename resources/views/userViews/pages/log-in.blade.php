@@ -23,6 +23,7 @@
 	</div>
 </div>
 <script>
+	//(29/10/2025) Gia Kiet Script kiem tra nhap thong tin dang nhap user
 	function isHasSpecialChar( string ){
 		for (let c of string){
 			// Tung cum lay ki tu khong thuoc khoang do
