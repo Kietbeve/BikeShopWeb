@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductType;
 
 class CategoryController extends Controller
 {
-    // phần category 
     // kiểm tra dữ liệu nhập vào của trang addcategory
     public function checkInputCategory(Request $request){
          $validated = $request->validate([
@@ -32,19 +32,24 @@ class CategoryController extends Controller
         // } catch(ValidationException $e){
         //     return response()->json(['success' => false, 'errors' => $e->errors()], 422);
         // }
+        $madm = 
         $danhmuc = [
-            'madm' => $request->input('madm'),
+            'madm' => ProductCategory::MadmAuto($request->input('malsp')),
             'malsp' => $request->input('malsp'),
             'tendm' => $request->input('tendm')   
         ];    
 
-        if(checkCategory($danhmuc['madm'])){
+        if(ProductCategory::checkCategory($danhmuc['madm'])){
             return redirect()->back()->with('message', 'Mã danh mục này đã tồn tại');
         }
-        //DB::statement("INSERT INTO danhmucsanpham ( madm, malsp, tendm ) VALUES (?,?,?)",[$danhmuc->madm, $danhmuc->malsp, $danhmuc->tendm]);
-        //DB::table('danhmucsanpham')->insert($danhmuc);
-        Product::addNewProduct($danhmuc);
-        //return response()->json([$danhmuc->madm, $danhmuc->tendm]);
-        return redirect('/addproduct')->with('success', 'Sản phẩm mới đã được thêm thành công!');
+
+        if(ProductType::checkType($danhmuc['malsp'])){
+            //DB::statement("INSERT INTO danhmucsanpham ( madm, malsp, tendm ) VALUES (?,?,?)",[$danhmuc->madm, $danhmuc->malsp, $danhmuc->tendm]);
+            //DB::table('danhmucsanpham')->insert($danhmuc);
+            ProductCategory::addNewCategory($danhmuc);
+            //return response()->json([$danhmuc->madm, $danhmuc->tendm]);
+            return redirect('/addproduct')->with('success', 'Sản phẩm mới đã được thêm thành công!');
+        }
+        return redirect()->with('message', 'Loại sản phẩm không tồn tại này đã tồn tại');
     }    
 }
