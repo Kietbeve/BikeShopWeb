@@ -18,7 +18,7 @@ class CheckAdLoginStatus
     
     {
        if(session('admin')==null){
-            return redirect('admin/dangnhap')
+            return redirect('admin/login')
             ->with('error', 'Bạn cần đăng nhập trước khi truy cập trang này.');
         }
         return $next($request);

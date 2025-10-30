@@ -4,7 +4,6 @@
 
 <h1 class="page-header">Danh Sách Sản Phẩm</h1>
     <!-- Bảng sản phẩm -->
-        <div class="container table-wrapper">
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-bordered">
                     <thead>
@@ -49,5 +48,4 @@
                     </tbody>
                     </table>
                 </div>
-            </div>
 @endsection

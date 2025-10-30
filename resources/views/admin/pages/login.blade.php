@@ -7,7 +7,7 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST" action="/admin/dangnhap">
+                    <form role="form" method="POST" action="/admin/login">
                             @csrf
                         <fieldset>
                             <div class="form-group">

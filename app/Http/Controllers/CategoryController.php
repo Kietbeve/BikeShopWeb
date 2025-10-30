@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
-
+use App\Models\Manufacturer;
 class CategoryController extends Controller
 {
     // phần category 
@@ -22,7 +22,8 @@ class CategoryController extends Controller
     //hàm lấy dữ liệu của danh mục
     public function getCategory(){
         $danhmuc = ProductCategory::getAllCategory();
-        return view('admin.pages.addproduct', compact('danhmuc'));    
+        $nsx = Manufacturer::getAllManufacturer();
+        return view('admin.pages.addproduct', compact('danhmuc','nsx'));    
     }
 
     // hàm thêm danh muc mới

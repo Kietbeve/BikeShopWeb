@@ -69,6 +69,6 @@ class ProductController extends Controller
             return redirect('/')->with('success', 'Sản phẩm mới đã được thêm thành công!');
         }
         //return response()->json("can them");    
-        return view('customer.adddanhmuc');    
+        return view('admin.pages.addproduct');    
     }
 }

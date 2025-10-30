@@ -223,16 +223,16 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="{{ url('/admin/bangdieukhien') }}"><i class="fa fa-dashboard fa-fw"></i> Bảng Điều Khiển</a>
+                    <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> Bảng Điều Khiển</a>
                 </li>
                 <li>
                     <a href=""><i class="fa fa-cubes"></i> Quản Lí Sản Phẩm<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{ url('/admin/themsanpham') }}"><i class="fa fa-plus-square"></i> Thêm Sản Phẩm</a>
+                            <a href="{{ url('/admin/addproduct') }}"><i class="fa fa-plus-square"></i> Thêm Sản Phẩm</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/danhsachsanpham') }}"><i class="fa fa-cube"></i> Danh Sách Sản Phẩm</a>
+                            <a href="{{ url('/admin/products') }}"><i class="fa fa-cube"></i> Danh Sách Sản Phẩm</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->

@@ -9,16 +9,16 @@ use Illuminate\Database\Eloquent\Model;
         protected $fillable = ['madm','tendm','malsp'];
 
         // hàm kiểm tra danh muc có tồn tại
-        public function checkCategory($madm){
+        public static function checkCategory($madm){
             return self::where('madm', $madm)->exists();
         }
 
         // hàm lấy tất cả danh mục
-        public function getAllCategory(){
+        public static function getAllCategory(){
             return self::all();
         }
         //thêm danh muc mới
-        public function addNewCategory(){
+        public static function addNewCategory(){
             return self::create();
         }
     }
