@@ -6,12 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
-<<<<<<< HEAD
 use App\Models\Manufacturer;
-=======
 use App\Models\ProductType;
 
->>>>>>> 881b5990312d0c1fd7ede696649987c4ca7e182c
 class CategoryController extends Controller
 {
     // kiểm tra dữ liệu nhập vào của trang addcategory
