@@ -14,6 +14,12 @@ use Illuminate\Database\Eloquent\Model;
             return $this->belongsTo(ProductCategory::class, 'madm', 'madm');
         }
 
+        // Hàm lấy mã sản phẩm tự tăng 
+        public static function productAuto(){
+            $count = self::count(); // đếm số sản phẩm
+            return 'SP'($count + 1);
+        }
+
         // HÀM LẤY SẢN PHẨM THEO MÃ LOẠI (ví dụ: malsp = 1 là bicycle)
         // return self::with(['danhmuc' => function ($query) {
         //     $query->select('madm', 'malsp', 'tendm');
@@ -48,12 +54,6 @@ use Illuminate\Database\Eloquent\Model;
         public static function checkProduct($masp)
         {
             return self::where('masp', $masp)->exists();
-        }
-
-        // Kiểm tra danh mục có tồn tại trong bảng sản phẩm
-        public static function checkCategory($madm)
-        {
-            return self::where('madm', $madm)->exists();
         }
 
         // Thêm sản phẩm mới

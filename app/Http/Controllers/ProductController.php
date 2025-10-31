@@ -44,10 +44,10 @@ class ProductController extends Controller
         // }
         $extension = $request->file('anh')->getClientOriginalExtension(); // lấy phần mở rộng của file   
         $fileName = Str::slug($request->input('masp')).'-'.time(). '.' . $extension;//phần slug dùng để tạo 1 tên ảnh theo masp và danh muc
-        $request->file('anh')->move(public_path('images'), $fileName);// move() or store: dùng để lưu ảnh vào thư mục ở đây move sẽ lưu ảnh vào thư mục public/images với tên như filename đã tạo phái trên
+        $request->file('anh')->move(public_path('userAsset/images'), $fileName);// move() or store: dùng để lưu ảnh vào thư mục ở đây move sẽ lưu ảnh vào thư mục public/images với tên như filename đã tạo phái trên
         $product = [
                 'anh' => $fileName,
-                'masp' => $request->input('masp'),
+                'masp' => Product::productAuto(),
                 'tensp' => $request->input('tensp'),
                 'madm' => $request->input('madm'),
                 'mansx' => $request->input('mansx'),
@@ -62,7 +62,7 @@ class ProductController extends Controller
         if(Product::checkProduct($product['masp'])){
             return redirect()->with('message', 'Sản phẩm đã tồn tại!');
         }
-        if(Product::CheckCategory($product['madm'])){ 
+        if(ProductCategory::checkCategory($product['madm'])){ 
             //DB:: statement("INSERT INTO sanpham ( anh, masp, tensp, madm, mansx, soluong, size, giaban, mota, trangthai, tags) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [$product->anh, $product->masp, $product->tensp, $product->madm, $product->mansx, $product->soluong, $product->size, $product->giaban, $product->mota, $product->trangthai, $product->tags]);
             //DB::table('sanpham')->insert($product);
             Product::addNewProduct($product);
