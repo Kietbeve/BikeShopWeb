@@ -66,9 +66,9 @@ class ProductController extends Controller
             //DB:: statement("INSERT INTO sanpham ( anh, masp, tensp, madm, mansx, soluong, size, giaban, mota, trangthai, tags) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [$product->anh, $product->masp, $product->tensp, $product->madm, $product->mansx, $product->soluong, $product->size, $product->giaban, $product->mota, $product->trangthai, $product->tags]);
             //DB::table('sanpham')->insert($product);
             Product::addNewProduct($product);
-            return redirect('/')->with('success', 'Sản phẩm mới đã được thêm thành công!');
+            return redirect('/')->with('message', 'Sản phẩm mới đã được thêm thành công!');
         }
         //return response()->json("can them");    
-        return view('customer.adddanhmuc');    
+        return view('admin.pages.addproduct');    
     }
 }

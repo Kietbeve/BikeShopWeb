@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
         // Hàm lấy mã sản phẩm tự tăng 
         public static function productAuto(){
             $count = self::count(); // đếm số sản phẩm
-            return 'SP'($count + 1);
+            return 'SP'.($count + 1);
         }
 
         // HÀM LẤY SẢN PHẨM THEO MÃ LOẠI (ví dụ: malsp = 1 là bicycle)

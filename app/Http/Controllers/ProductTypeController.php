@@ -37,12 +37,12 @@ class ProductTypeController extends Controller
         //     return response()->json(['success' => false, 'errors' => $e->errors()], 422);
         // }
         $lsp = [
-            'tenlsp' => $request->input('tendm')   
+            'tenlsp' => $request->input('tenlsp')   
         ];    
         if(ProductType::checkNameType($lsp['tenlsp'])){            
-            return redirect()->with('message', 'Loại sản phẩm đã tồn tại');
+            return redirect()->back()->with('message', 'Loại sản phẩm đã tồn tại');
         }
-        Product::addNewType($lsp);
+        ProductType::addNewType($lsp);
         return redirect('admin/addcategory')->with('message', 'Thêm loại sản phẩm thành công!');
     } 
 }

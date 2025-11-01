@@ -23,8 +23,8 @@ use Illuminate\Database\Eloquent\Model;
             return self::all();
         }
         //thêm danh muc mới
-        public static function addNewType(){
-            return self::create();
+        public static function addNewType(array $data){
+            return self::create($data);
         }
     }
 

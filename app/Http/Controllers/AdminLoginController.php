@@ -17,7 +17,7 @@ class AdminLoginController extends Controller
     }
     public function logout(Request $request){//test
         $request->session()->put('admin',null);
-        return redirect("/admin/dangnhap");
+        return redirect("/admin/login");
     }
     //LanSuaCuoi: 27/10/25 NguoiSua: TuanKiet
     //trang thai: Hoat dong tot voi checkLogin
@@ -32,7 +32,7 @@ class AdminLoginController extends Controller
         //if($remember){ chua biet xu li
             $request->session()->put('admin', $nguoidung); // luu taikhoan
         //}
-        return redirect("/admin/bangdieukhien");
+        return redirect("/admin/dashboard");
     }
         return back()->with('error', 'Sai tên đăng nhập hoặc mật khẩu!');
     }

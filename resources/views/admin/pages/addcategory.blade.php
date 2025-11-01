@@ -1,8 +1,8 @@
 @extends('admin.home.admin')
-@section('title', 'Thêm Sản Phẩm')
+@section('title', 'Thêm Danh Mục')
 @section('content')
 
-<h1 class="page-header">Thêm Sản Phẩm Mới</h1>
+<h1 class="page-header">Thêm Danh Mục Mới</h1>
 
 {{-- gợi ý hàm: 
     có thể dùng foreach để lấy ra tên danh mục nhưng giá trị phải gắn = madm phải gán lại value cho tui
@@ -12,6 +12,9 @@
     <div class="col-lg-3 col-md-6">
         <div class="container mt-5">
             <div class="card shadow-sm">
+                @if (session('message'))
+                    <div class="alert alert-danger">{{ session('message') }}</div>
+                @endif
                 <div class="card-header bg-primary text-white rounded-top">
                     <div class="card-body border rounded-lg p-3 border bg-white shadow-sm">
                         <form action="/admin/addcategory" method="POST" enctype="multipart/form-data">

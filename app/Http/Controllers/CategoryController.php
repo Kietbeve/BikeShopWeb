@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Manufacturer;
 use App\Models\ProductType;
 
 
@@ -28,7 +29,8 @@ class CategoryController extends Controller
 
     public function setAddProduct(){
         $danhmuc = $this->getCategory();
-        return view('admin.pages.addproduct', compact('danhmuc'));    
+        $nsx = Manufacturer::getAllManufacturer();
+        return view('admin.pages.addproduct', compact('danhmuc','nsx'));    
     }
 
     public function setAddCategory(){
@@ -50,15 +52,15 @@ class CategoryController extends Controller
             'tendm' => $request->input('tendm')   
         ];    
 
-        if(ProductCategory::checkCategory($danhmuc['madm']) && ProductCategory::checkNameCategory($danhmuc['tendm'])){
-            return redirect()->back()->with('message', 'Mã danh mục này đã tồn tại!');
+        if(ProductCategory::checkCategory($danhmuc['madm']) || ProductCategory::checkNameCategory($danhmuc['tendm'])){
+            return redirect()->back()->with('message', 'Danh mục này đã tồn tại!');
         }
 
         if(ProductType::checkType($danhmuc['malsp'])){
             $danhmuc['madm'] =  ProductCategory::MadmAuto($request->input('malsp'));
             ProductCategory::addNewCategory($danhmuc);
             //return response()->json([$danhmuc->madm, $danhmuc->tendm]);
-            return redirect('admin/addproduct')->with('success', 'Danh mục mới đã được thêm thành công!');
+            return redirect('admin/addproduct')->with('message', 'Danh mục mới đã được thêm thành công!');
         }
         return redirect('/admin/addproducttype')->with('message', 'Loại sản phẩm không tồn tại này đã tồn tại');
     }    
