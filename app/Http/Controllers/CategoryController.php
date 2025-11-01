@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductType;
 
+
 class CategoryController extends Controller
 {
     // kiểm tra dữ liệu nhập vào của trang addcategory
@@ -22,7 +23,18 @@ class CategoryController extends Controller
     //hàm lấy dữ liệu của danh mục
     public function getCategory(){
         $danhmuc = ProductCategory::getAllCategory();
+        return $danhmuc;    
+    }
+
+    public function setAddProduct(){
+        $danhmuc = $this->getCategory();
         return view('admin.pages.addproduct', compact('danhmuc'));    
+    }
+
+    public function setAddCategory(){
+        $danhmuc = $this->getCategory();
+        $lsp = ProductType::getAllType();
+        return view('admin.pages.addcategory', compact('danhmuc', 'lsp'));    
     }
 
     // hàm thêm danh muc mới
@@ -32,24 +44,22 @@ class CategoryController extends Controller
         // } catch(ValidationException $e){
         //     return response()->json(['success' => false, 'errors' => $e->errors()], 422);
         // }
-        $madm = 
         $danhmuc = [
-            'madm' => ProductCategory::MadmAuto($request->input('malsp')),
+            'madm' => null,
             'malsp' => $request->input('malsp'),
             'tendm' => $request->input('tendm')   
         ];    
 
-        if(ProductCategory::checkCategory($danhmuc['madm'])){
-            return redirect()->back()->with('message', 'Mã danh mục này đã tồn tại');
+        if(ProductCategory::checkCategory($danhmuc['madm']) && ProductCategory::checkNameCategory($danhmuc['tendm'])){
+            return redirect()->back()->with('message', 'Mã danh mục này đã tồn tại!');
         }
 
         if(ProductType::checkType($danhmuc['malsp'])){
-            //DB::statement("INSERT INTO danhmucsanpham ( madm, malsp, tendm ) VALUES (?,?,?)",[$danhmuc->madm, $danhmuc->malsp, $danhmuc->tendm]);
-            //DB::table('danhmucsanpham')->insert($danhmuc);
+            $danhmuc['madm'] =  ProductCategory::MadmAuto($request->input('malsp'));
             ProductCategory::addNewCategory($danhmuc);
             //return response()->json([$danhmuc->madm, $danhmuc->tendm]);
-            return redirect('/addproduct')->with('success', 'Sản phẩm mới đã được thêm thành công!');
+            return redirect('admin/addproduct')->with('success', 'Danh mục mới đã được thêm thành công!');
         }
-        return redirect()->with('message', 'Loại sản phẩm không tồn tại này đã tồn tại');
+        return redirect('/admin/addproducttype')->with('message', 'Loại sản phẩm không tồn tại này đã tồn tại');
     }    
 }

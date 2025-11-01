@@ -14,41 +14,31 @@
             <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white rounded-top">
                     <div class="card-body border rounded-lg p-3 border bg-white shadow-sm">
-                        <form action="themsanpham" method="POST" enctype="multipart/form-data">
-                            @csrf                        
-
-                            <!-- Mã sản phẩm -->
-                            <div class="form-group col-md-6">
-                            <label for="productCode">Mã danh mục</label>
-                            <input type="text" class="form-control" id="madm" name="madm" placeholder="Nhập mã sản phẩm" list="productCodes" required>
-                            <datalist id="productCodes">
-                                 @foreach ($danhmuc as $dm)
-                                    <option>{{ $dm->madm }}</option>
-                                @endforeach
-                            </datalist>
-                            </div>
-                        </div>
-
+                        <form action="/admin/addcategory" method="POST" enctype="multipart/form-data">
+                            @csrf                       
                         <div class="form-row">
                             <!-- Tên sản phẩm -->
                             <div class="form-group col-md-6">
-                            <label for="productName">Tên danh mục</label>
-                            <input type="text" class="form-control" id="tendm" name="tendm" placeholder="Nhập tên sản phẩm" list="productNames" required>
-                            <datalist id="productNames">
-                                 @foreach ($danhmuc as $dm)
-                                    <option>{{ $dm->tendm }}</option>
-                                @endforeach
-                            </datalist>
+                                <label for="tendm">Tên danh mục</label>
+                                <input type="text" class="form-control" id="tendm" name="tendm" placeholder="Nhập tên sản phẩm" list="nameCategory" required>
+                                    <datalist id="nameCategory">
+                                        @foreach ($danhmuc as $dm)
+                                            <option>{{ $dm->tendm }}</option>
+                                        @endforeach
+                                    </datalist>
                             </div>
 
                             <!-- Loại sản phẩm -->
                             <div class="form-group col-md-4">
-                            <label for="productType">Loại sản phẩm</label>
-                            <select class="form-control" id="productType" name="type" required>
-                                
-                            </select>
+                            <label for="malsp">Loại sản phẩm</label>
+                            <input type="text" class="form-control" id="malsp" name="malsp" placeholder="Nhập tên sản phẩm" list="productType" required>
+                                <datalist id="productType">
+                                    @foreach ($lsp as $i)
+                                        <option value="{{ $i->malsp }}">{{ $i->tenlsp }}</option>
+                                    @endforeach
+                                </datalist>
                             </div>
-                        </div>                       
+                        </div>                      
 
                         <!-- Nút submit -->
                         <button type="submit" class="btn btn-success btn-block btn-lg shadow-sm rounded"> Thêm sản phẩm</button>

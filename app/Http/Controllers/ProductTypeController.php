@@ -21,8 +21,14 @@ class ProductTypeController extends Controller
     //hàm lấy dữ liệu của danh mục
     public function getType(){
         $lsp = ProductType::getAllType();
-        return view('admin.pages.addcategory', compact('lsp'));    
+        return $lsp;    
     }
+
+    public function setType(){
+        $lsp = $this->getType();
+        return view('admin.pages.addproducttype', compact('lsp'));   
+    }
+
     // hàm thêm danh muc mới
     public function addProductType(Request $request){
         //  try{
@@ -31,13 +37,12 @@ class ProductTypeController extends Controller
         //     return response()->json(['success' => false, 'errors' => $e->errors()], 422);
         // }
         $lsp = [
-            'malsp' => $request->input('malsp'),
             'tenlsp' => $request->input('tendm')   
         ];    
-        if(ProductType::checkType($lsp['malsp'])){            
+        if(ProductType::checkNameType($lsp['tenlsp'])){            
             return redirect()->with('message', 'Loại sản phẩm đã tồn tại');
         }
         Product::addNewType($lsp);
-        
+        return redirect('admin/addcategory')->with('message', 'Thêm loại sản phẩm thành công!');
     } 
 }

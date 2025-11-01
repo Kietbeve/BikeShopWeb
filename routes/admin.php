@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\ProductTypeController;
 
 // không thể tới view thông qua các route trên xin hãy chỉnh sửa (xóa dòng này khi đã khắc phục)
 // Route cho admin
@@ -17,8 +17,14 @@ Route::middleware('CheckAdLoginStatus')->group(function(){
     // Route::get('themsanpham', function(){
     //     return view('admin.pages.addproduct');
     // });
-    Route::get('themsanpham', [CategoryController::class, 'getCategory']);
+    Route::get('themsanpham', [CategoryController::class, 'setAddProduct']);
     Route::post('themsanpham',[ProductController::class,'addProduct'])->name('themsanpham');
     Route::get('danhsachsanpham',[ProductController::class,'getProduct']);
     Route::get('dangxuat',[AdminLoginController::class, 'logout']);
+    //trang AddCategory 
+    Route::get('addcategory', [CategoryController::class, 'setAddCategory']);
+    Route::post('addcategory',[CategoryController::class,'addProductCategory'])->name('addcategory');
+    //trang addproducttype
+    Route::get('addproducttype', [ProductTypeController::class, 'setType']);
+    Route::post('addtype',[ProductTypeController::class,'addProductType'])->name('addtype');
 });

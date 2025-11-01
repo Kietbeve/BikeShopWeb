@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
     {
         protected $table = 'danhmucsanpham'; // Tên bảng trong cơ sở dữ liệu
         protected $fillable = ['madm','tendm','malsp'];
+        public $timestamps = false;
 
         public static function MadmAuto($malsp){            
             switch ($malsp) {
@@ -24,13 +25,16 @@ use Illuminate\Database\Eloquent\Model;
                     break;
             }
             $count = self::where('malsp', $malsp)->count();
-            return $TienTo($count + 1);
+            return $TienTo.($count + 1);
         }
-        
 
         // hàm kiểm tra danh muc có tồn tại
         public static function checkCategory($madm){
             return self::where('madm', $madm)->exists();
+        }
+
+         public static function checkNameCategory($tendm){
+            return self::where('tendm', $tendm)->exists();
         }
 
         // hàm lấy tất cả danh mục
@@ -38,8 +42,8 @@ use Illuminate\Database\Eloquent\Model;
             return self::all();
         }
         //thêm danh muc mới
-        public static function addNewCategory(){
-            return self::create();
+        public static function addNewCategory(array $data){
+            return self::create($data);
         }
     }
 
