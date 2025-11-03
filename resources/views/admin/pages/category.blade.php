@@ -8,17 +8,17 @@
                     <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                        <th>Ảnh</th>
-                        <th>Mã SP</th>
-                        <th>Tên SP</th>
-                        <th>Mã danh mục</th>
-                        <th>Mã NSX</th>
-                        <th>Số lượng</th>
-                        <th>Size</th>
-                        <th>Mô tả</th>
-                        <th>Giá bán</th>
-                        <th>Trạng thái</th>
-                        <th>Tags</th>
+                            <th>Ảnh</th>
+                            <th>Mã SP</th>
+                            <th>Tên SP</th>
+                            <th>Mã danh mục</th>
+                            <th>Mã NSX</th>
+                            <th>Số lượng</th>
+                            <th>Size</th>
+                            <th>Mô tả</th>
+                            <th>Giá bán</th>
+                            <th>Tags</th>
+                            <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,15 +32,14 @@
                             <td>{{ $product->mansx }}</td>
                             <td>{{ $product->soluong }}</td>
                             <td>{{ $product->size }}</td>
-                            <td>{{ $product->giaban }}</td>
                             <td>{{ $product->mota }}</td>
-                            <td>{{ $product->trangthai }}</td>
+                            <td>{{ $product->giaban }}</td>
                             <td>{{ $product->tags }}</td>
                             <td>
                                 @if($product->trangthai)
-                                    <span class="badge badge-success rounded-pill">Hiển thị</span>
+                                    <span class="badge badge-primary rounded-pill">Đang bán</span>
                                     @else
-                                    <span class="badge badge-danger rounded-pill">Ẩn</span>
+                                    <span class="badge badge-danger rounded-pill">Dừng bán</span>
                                 @endif
                             </td>
                         </tr>

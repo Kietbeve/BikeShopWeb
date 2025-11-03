@@ -232,8 +232,14 @@
                             <a href="{{ url('/admin/addproduct') }}"><i class="fa fa-plus-square"></i> Thêm Sản Phẩm</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/products') }}"><i class="fa fa-cube"></i> Danh Sách Sản Phẩm</a>
+                            <a href="{{ url('/admin/addcategory') }}"><i class="fa fa-plus-square"></i> Thêm Danh Mục Sản Phẩm</a>
                         </li>
+                        <li>
+                            <a href="{{ url('/admin/addproducttype') }}"><i class="fa fa-plus-square"></i> Thêm Loại Sản Phẩm</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/products') }}"><i class="fa fa-cube"></i> Danh Sách Sản Phẩm</a>
+                        </li>                        
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>

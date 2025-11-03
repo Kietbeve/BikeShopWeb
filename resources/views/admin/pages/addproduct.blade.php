@@ -15,8 +15,17 @@
                             <!-- Ảnh sản phẩm  -->
                             <div class="form-group col-md-12">
                                 <label for="anh">Ảnh sản phẩm</label>
-                                <input type="file" name="anh" required="">
-                                <img src="{{asset("/images/noimg.jpg")}}" class="img-fluid" id="pre-img-1" >
+                                <input type="file" name="anh" required="" id="i-img-1">
+                                <img src="{{asset("/userAsset/images/noimg.jpg")}}" class="img-fluid" id="pre-img-1" width="200px" style="margin-top: 5px">
+                                <script>
+                                    var i_img1=document.getElementById('i-img-1')//input
+                                        i_img1.onchange = evt => {
+                                            const [file] =  i_img1.files
+                                            if (file) {
+                                                document.getElementById('pre-img-1').src = URL.createObjectURL(file)//noi anh xuat hien
+                                            }
+                                        }
+                                </script>
                             </div>
                         </div>
 
@@ -46,8 +55,7 @@
                                 @endforeach
                             </datalist>
                             </div>
-                        </div>
-                            
+                        </div>                           
 
                         <div class="form-row">
                             <!-- Số lượng -->
