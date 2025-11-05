@@ -33,5 +33,8 @@ Route::middleware('CheckAdLoginStatus')->group(function(){
     Route::post('addproduct',[ProductController::class,'addProduct'])->name('themsanpham');
     Route::get('products',[ProductController::class,'getProduct']);
     Route::get('logout',[AdminLoginController::class, 'logout']);
-
+    Route::get('deleteproduct/{masp}',[ProductController::class,'deleteProduct'])->name('deleteproduct');
+    // trang edit 
+    Route::get('/editproduct/{masp}', [ProductController::class,'editProduct'])->name('editProduct');
+    Route::post('/updateproduct',[ProductController::class,'updateProduct'])->name('updateproduct');
 });

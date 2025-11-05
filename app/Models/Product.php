@@ -61,6 +61,18 @@ use Illuminate\Database\Eloquent\Model;
         {
             return self::create($data);
         }
+
+        public static function deleteProduct($id){
+            return self::where('masp', $id)->delete();
+        }
+
+        public static function editProduct($id){
+            return self::where('masp', $id)->firstOrFail();
+        }
+
+        public static function updateProduct($id, array $data){
+            return self::where('masp', $id)->update($data);
+        }
     }
 
 

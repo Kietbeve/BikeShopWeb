@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Support\Str;
+use App\Models\Manufacturer;
 
 
 class ProductController extends Controller
@@ -42,9 +44,20 @@ class ProductController extends Controller
         // } catch(ValidationException $e){
         //     return response()->json(['success' => false, 'errors' => $e->errors()], 422);
         // }
-        $extension = $request->file('anh')->getClientOriginalExtension(); // lấy phần mở rộng của file   
-        $fileName = Str::slug($request->input('masp')).'-'.time(). '.' . $extension;//phần slug dùng để tạo 1 tên ảnh theo masp và danh muc
-        $request->file('anh')->move(public_path('userAsset/images'), $fileName);// move() or store: dùng để lưu ảnh vào thư mục ở đây move sẽ lưu ảnh vào thư mục public/images với tên như filename đã tạo phái trên
+        if($request->hasFile('anh') && $request->file('anh')->isValid()) {
+            $img_goc = $request->file('anh')->getClientOriginalName();
+            if(!file_exists(public_path('userAsset/images/'.$img_goc))) {
+                $extension = $request->file('anh')->getClientOriginalExtension(); // lấy phần mở rộng của file   
+                $fileName = Str::slug($request->input('masp')).'-'.time(). '.' . $extension;//phần slug dùng để tạo 1 tên ảnh theo masp và danh muc
+                $request->file('anh')->move(public_path('userAsset/images'), $fileName);// move() or store: dùng để lưu ảnh vào thư mục ở đây move sẽ lưu ảnh vào thư mục public/images với tên như filename đã tạo phái trên
+            }
+            else {
+                $fileName = $img_goc;
+            }
+        }   
+        else {
+            $fileName = "noimg.jpg";
+        }     
         $product = [
                 'anh' => $fileName,
                 'masp' => Product::productAuto(),
@@ -71,4 +84,49 @@ class ProductController extends Controller
         //return response()->json("can them");    
         return view('admin.pages.addproduct');    
     }
+
+    function deleteProduct($masp) {
+        Product::deleteProduct($masp);                
+        //return view('customer.product', compact('products'));
+        return redirect('admin/products')->with('message', 'Sản phẩm mới đã được xóa thành công!');
+    }
+
+    function editProduct($masp){
+        $product = Product::editProduct($masp);
+        $danhmuc = ProductCategory::getAllCategory();
+        $nsx = Manufacturer::getAllManufacturer();
+        return view('admin.pages.editproduct', compact('product', 'danhmuc', 'nsx'));
+    }
+
+    function updateProduct(Request $request) {
+        if($request->hasFile('anh') && $request->file('anh')->isValid()) {
+            $img_goc = $request->file('anh')->getClientOriginalName();
+            if(!file_exists(public_path('userAsset/images/'.$img_goc))) {
+                $extension = $request->file('anh')->getClientOriginalExtension(); // lấy phần mở rộng của file   
+                $fileName = Str::slug($request->input('masp')).'-'.time(). '.' . $extension;//phần slug dùng để tạo 1 tên ảnh theo masp và danh muc
+                $request->file('anh')->move(public_path('userAsset/images'), $fileName);// move() or store: dùng để lưu ảnh vào thư mục ở đây move sẽ lưu ảnh vào thư mục public/images với tên như filename đã tạo phái trên
+            }
+            else {
+                $fileName = $img_goc;
+            }
+        }   
+        else {
+            $fileName = $request->input('anh_cu');
+        } 
+        $data = [
+                'anh' => $fileName,
+                'masp' => $request->input('masp'),
+                'tensp' => $request->input('tensp'),
+                'madm' => $request->input('madm'),
+                'mansx' => $request->input('mansx'),
+                'soluong' => $request->input('soluong'),
+                'size' => $request->input('size'),
+                'giaban' => $request->input('giaban'),
+                'mota' => $request->input('mota'),
+                'trangthai' => $request->input('trangthai'),
+                'tags' => $request->input('tags')
+            ];
+        Product::updateProduct($data['masp'], $data);
+        return redirect('admin/products')->with('message','Sản phẩm được sửa thành công');
+    }    
 }
